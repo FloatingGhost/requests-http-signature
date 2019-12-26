@@ -130,7 +130,7 @@ class HTTPSignatureAuth(requests.auth.AuthBase):
             ("headers", " ".join(self.headers)),
             ("signature", sig),
         ]
-        request.headers[self.auth_header] = "Signature " + ",".join(
+        request.headers[self.auth_header] = ",".join(
             '{}="{}"'.format(k, v) for k, v in sig_struct
         )
         return request
